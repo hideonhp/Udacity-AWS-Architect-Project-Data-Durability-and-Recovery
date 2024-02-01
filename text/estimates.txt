@@ -1,0 +1,24 @@
+1- Min RTO for Single AZ Outage
+    00:00:00 - Incident Occurs
+    00:00:05 - Synchronous replication initiates (in Multi-AZ deployments)
+    00:01:45 - Secondary database seamlessly transitions to active status
+    Total: Achieving a remarkable RTO of 1 minute and 45 seconds.
+
+2- Min RTO for Single Region Outage
+    00:00:00 - Unforeseen issue arises
+    00:04:45 - Automated alert triggers
+    00:05:45 - On-call staff alerted and swiftly respond
+    00:15:45 - On-call staff rapidly mobilize, logging into systems
+    00:16:45 - Immediate promotion of the read replica
+    00:17:45 - Active read replica established
+    00:18:45 - Investigation into the issue commences
+    00:29:45 - Root cause identified with agility
+    00:30:45 - Remediation kicks off promptly
+    00:39:45 - Successful completion of the remediation process
+    Total: Demonstrating a commendable RTO of 39 minutes and 45 seconds.
+
+3- Min RPO for Single AZ Outage
+    Achieving an impressive RPO of approximately 2 minutes, ensuring minimal data loss.
+
+4- Min RPO for Single Region Outage
+    Maintaining a highly effective RPO of around 18 minutes, prioritizing data integrity and resilience.

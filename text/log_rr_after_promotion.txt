@@ -1,0 +1,75 @@
+PowerShell 7.4.0
+
+A new PowerShell stable release is available: v7.4.1
+Upgrade now, or check out the release page at:
+https://aka.ms/PowerShell-Release?tag=v7.4.1
+
+PS C:\Users\hideo\Downloads> ssh -i "uda*seacond.pem" ec2-user@ec2-34-216-180-124.us-west-2.compute.amazonaws.com
+, #*
+~\_ ####\_ Amazon Linux 2023
+~~ \_#####\
+ ~~ \###|
+~~ \#/ _\_\_ https://aws.amazon.com/linux/amazon-linux-2023
+~~ V~' '->
+~~~ /
+~~._. _/
+_/ _/
+_/m/'
+Last login: Thu Feb 1 15:59:52 2024 from 171.234.8.47
+[ec2-user@ip-192-168-11-246 ~]$ mysql -h database-test-read-replica.cwaiefqyy2as.us-west-2.rds.amazonaws.com -P 3306 -u admin -p
+Enter password:
+Welcome to the MySQL monitor. Commands end with ; or \g.
+Your MySQL connection id is 7
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases
+-> ;
++--------------------+
+| Database |
++--------------------+
+| information_schema |
+| mysql |
+| performance_schema |
+| sys |
+| udacity |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| abcd |
++-------------------+
+1 row in set (0.01 sec)
+
+mysql> INSERT INTO abcd (id, name) VALUES (5, 'replica insert');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select \* from abcd
+-> ;
++----+----------------+
+| id | name |
++----+----------------+
+| 1 | create 1 |
+| 2 | create 2 |
+| 3 | create 3 |
+| 4 | create 4 |
+| 5 | replica insert |
++----+----------------+
+5 rows in set (0.00 sec)
+
+mysql>

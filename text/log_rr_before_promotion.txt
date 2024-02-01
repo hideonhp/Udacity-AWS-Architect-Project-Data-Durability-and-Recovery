@@ -1,0 +1,186 @@
+PS C:\Users\hideo\Downloads> ssh -i "uda*seacond.pem" ec2-user@ec2-34-212-83-24.us-west-2.compute.amazonaws.com
+ssh: connect to host ec2-34-212-83-24.us-west-2.compute.amazonaws.com port 22: Connection timed out
+PS C:\Users\hideo\Downloads> ssh -i "uda_seacond.pem" ec2-user@ec2-34-212-83-24.us-west-2.compute.amazonaws.com
+ssh: connect to host ec2-34-212-83-24.us-west-2.compute.amazonaws.com port 22: Connection timed out
+PS C:\Users\hideo\Downloads> ssh -i "uda_seacond.pem" ec2-user@ec2-34-212-83-24.us-west-2.compute.amazonaws.com
+PS C:\Users\hideo\Downloads> ^C
+PS C:\Users\hideo\Downloads> ssh -i "uda_seacond.pem" ec2-user@ec2-34-216-180-124.us-west-2.compute.amazonaws.com
+The authenticity of host 'ec2-34-216-180-124.us-west-2.compute.amazonaws.com (34.216.180.124)' can't be established.
+ED25519 key fingerprint is SHA256:DiEuZ9Nbrv7BeTRc1t5CUOSGOaoBgN4lnM23zwNpZXI.
+This host key is known by the following other names/addresses:
+C:\Users\hideo/.ssh/known_hosts:7: ec2-34-212-83-24.us-west-2.compute.amazonaws.com
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-34-216-180-124.us-west-2.compute.amazonaws.com' (ED25519) to the list of known hosts.
+, #*
+~\_ ####\_ Amazon Linux 2023
+~~ \_#####\
+ ~~ \###|
+~~ \#/ _\_\_ https://aws.amazon.com/linux/amazon-linux-2023
+~~ V~' '->
+~~~ /
+~~._. _/
+_/ _/
+_/m/'
+Last login: Thu Feb 1 15:56:10 2024 from 171.234.8.47
+[ec2-user@ip-192-168-11-246 ~]$ sudo su -
+[root@ip-192-168-11-246 ~]# dnf -y localinstall https://dev.mysql.com/get/mysql80-community-release-el9-4.noarch.rpm
+Last metadata expiration check: 0:05:12 ago on Thu Feb 1 15:54:56 2024.
+mysql80-community-release-el9-4.noarch.rpm 24 kB/s | 13 kB 00:00
+Dependencies resolved.
+========================================================================================================================
+Package Architecture Version Repository Size
+========================================================================================================================
+Installing:
+mysql80-community-release noarch el9-5 @commandline 13 k
+
+# Transaction Summary
+
+Install 1 Package
+
+Total size: 13 k
+Installed size: 12 k
+Downloading Packages:
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+Preparing : 1/1
+Installing : mysql80-community-release-el9-5.noarch 1/1
+Verifying : mysql80-community-release-el9-5.noarch 1/1
+
+Installed:
+mysql80-community-release-el9-5.noarch
+
+Complete!
+[root@ip-192-168-11-246 ~]# dnf -y install mysql mysql-community-client
+MySQL 8.0 Community Server 11 MB/s | 1.4 MB 00:00
+MySQL Connectors Community 852 kB/s | 45 kB 00:00
+MySQL Tools Community 4.6 MB/s | 536 kB 00:00
+Dependencies resolved.
+========================================================================================================================
+Package Architecture Version Repository Size
+========================================================================================================================
+Installing:
+mysql-community-client x86_64 8.0.36-1.el9 mysql80-community 3.4 M
+Installing dependencies:
+mysql-community-client-plugins x86_64 8.0.36-1.el9 mysql80-community 1.4 M
+mysql-community-common x86_64 8.0.36-1.el9 mysql80-community 556 k
+mysql-community-libs x86_64 8.0.36-1.el9 mysql80-community 1.4 M
+
+# Transaction Summary
+
+Install 4 Packages
+
+Total download size: 6.8 M
+Installed size: 95 M
+Downloading Packages:
+(1/4): mysql-community-common-8.0.36-1.el9.x86_64.rpm 7.2 MB/s | 556 kB 00:00
+(2/4): mysql-community-client-plugins-8.0.36-1.el9.x86_64.rpm 13 MB/s | 1.4 MB 00:00
+(3/4): mysql-community-libs-8.0.36-1.el9.x86_64.rpm 32 MB/s | 1.4 MB 00:00
+(4/4): mysql-community-client-8.0.36-1.el9.x86_64.rpm 19 MB/s | 3.4 MB 00:00
+
+---
+
+Total 37 MB/s | 6.8 MB 00:00
+MySQL 8.0 Community Server 3.0 MB/s | 3.1 kB 00:00
+Importing GPG key 0xA8D3785C:
+Userid : "MySQL Release Engineering <mysql-build@oss.oracle.com>"
+Fingerprint: BCA4 3417 C3B4 85DD 128E C6D4 B7B3 B788 A8D3 785C
+From : /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
+Key imported successfully
+MySQL 8.0 Community Server 3.0 MB/s | 3.1 kB 00:00
+Importing GPG key 0x3A79BD29:
+Userid : "MySQL Release Engineering <mysql-build@oss.oracle.com>"
+Fingerprint: 859B E8D7 C586 F538 430B 19C2 467B 942D 3A79 BD29
+From : /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2022
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+Preparing : 1/1
+Installing : mysql-community-client-plugins-8.0.36-1.el9.x86_64 1/4
+Installing : mysql-community-common-8.0.36-1.el9.x86_64 2/4
+Installing : mysql-community-libs-8.0.36-1.el9.x86_64 3/4
+Running scriptlet: mysql-community-libs-8.0.36-1.el9.x86_64 3/4
+Installing : mysql-community-client-8.0.36-1.el9.x86_64 4/4
+Running scriptlet: mysql-community-client-8.0.36-1.el9.x86_64 4/4
+Verifying : mysql-community-client-8.0.36-1.el9.x86_64 1/4
+Verifying : mysql-community-client-plugins-8.0.36-1.el9.x86_64 2/4
+Verifying : mysql-community-common-8.0.36-1.el9.x86_64 3/4
+Verifying : mysql-community-libs-8.0.36-1.el9.x86_64 4/4
+
+Installed:
+mysql-community-client-8.0.36-1.el9.x86_64 mysql-community-client-plugins-8.0.36-1.el9.x86_64
+mysql-community-common-8.0.36-1.el9.x86_64 mysql-community-libs-8.0.36-1.el9.x86_64
+
+Complete!
+[root@ip-192-168-11-246 ~]# mysql -h database-test-read-replica.cwaiefqyy2as.us-west-2.rds.amazonaws.com -P 3306 -u admin -p
+Enter password:
+Welcome to the MySQL monitor. Commands end with ; or \g.
+Your MySQL connection id is 36
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database |
++--------------------+
+| information_schema |
+| mysql |
+| performance_schema |
+| sys |
+| udacity |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> use udacity
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES^C
+mysql> SHOW TABLES
+-> ^C
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| abcd |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select \* from abcd
+-> ;
++----+----------+
+| id | name |
++----+----------+
+| 1 | create 1 |
+| 2 | create 2 |
+| 3 | create 3 |
+| 4 | create 4 |
++----+----------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO abcd(5,replica);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '5,replica)' at line 1
+mysql> INSERT INTO abcd(5,"replica");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '5,"replica")' at line 1
+mysql> INSERT INTO abcd(id,name) VALUES (5,replica insert);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insert)' at line 1
+mysql> INSERT INTO abcd (id, name) VALUES (5, 'replica insert');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql> INSERT INTO abcd (id, name) VALUES (5, 'replica insert');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql> INSERT INTO abcd (id, name) VALUES (5, 'replica insert');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+mysql>

@@ -1,0 +1,186 @@
+PowerShell 7.4.0
+
+   A new PowerShell stable release is available: v7.4.1
+   Upgrade now, or check out the release page at:
+     https://aka.ms/PowerShell-Release?tag=v7.4.1
+
+PS C:\Users\hideo\Downloads> ssh -i "uda.pem" ec2-user@ec2-44-204-216-176.compute-1.amazonaws.com
+The authenticity of host 'ec2-44-204-216-176.compute-1.amazonaws.com (44.204.216.176)' can't be established.
+ED25519 key fingerprint is SHA256:+JfybEBYIlUFFA/YZNBgAjYFVuXbUOS6MvbBAY60/Po.
+This host key is known by the following other names/addresses:
+    C:\Users\hideo/.ssh/known_hosts:5: ec2-44-199-217-16.compute-1.amazonaws.com
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-44-204-216-176.compute-1.amazonaws.com' (ED25519) to the list of known hosts.
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ec2-user@ip-10-1-11-57 ~]$ sudo yum install mysql
+Last metadata expiration check: 0:18:02 ago on Thu Feb  1 14:56:04 2024.
+No match for argument: mysql
+Error: Unable to find a match: mysql
+[ec2-user@ip-10-1-11-57 ~]$ mysql -v
+-bash: mysql: command not found
+[ec2-user@ip-10-1-11-57 ~]$ mysql -h
+-bash: mysql: command not found
+[ec2-user@ip-10-1-11-57 ~]$ sudo yum update -y
+Last metadata expiration check: 0:20:18 ago on Thu Feb  1 14:56:04 2024.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-10-1-11-57 ~]$ sudo yum install mysql-server -y
+Last metadata expiration check: 0:20:23 ago on Thu Feb  1 14:56:04 2024.
+No match for argument: mysql-server
+Error: Unable to find a match: mysql-server
+[ec2-user@ip-10-1-11-57 ~]$ sudo su -
+[root@ip-10-1-11-57 ~]# dnf -y localinstall https://dev.mysql.com/get/mysql80-community-release-el9-4.noarch.rpm
+Last metadata expiration check: 0:20:52 ago on Thu Feb  1 14:56:04 2024.
+mysql80-community-release-el9-4.noarch.rpm                                              9.0 kB/s |  13 kB     00:01
+Dependencies resolved.
+======================================================================================================================== Package                                  Architecture          Version               Repository                   Size
+========================================================================================================================Installing:
+ mysql80-community-release                noarch                el9-5                 @commandline                 13 k
+
+Transaction Summary
+========================================================================================================================Install  1 Package
+
+Total size: 13 k
+Installed size: 12 k
+Downloading Packages:
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                1/1
+  Installing       : mysql80-community-release-el9-5.noarch                                                         1/1
+  Verifying        : mysql80-community-release-el9-5.noarch                                                         1/1
+
+Installed:
+  mysql80-community-release-el9-5.noarch
+
+Complete!
+[root@ip-10-1-11-57 ~]# ^C
+[root@ip-10-1-11-57 ~]# dnf -y install mysql mysql-community-client
+MySQL 8.0 Community Server                                                               25 MB/s | 1.4 MB     00:00
+MySQL Connectors Community                                                              2.2 MB/s |  45 kB     00:00
+MySQL Tools Community                                                                    15 MB/s | 536 kB     00:00
+Dependencies resolved.
+======================================================================================================================== Package                                   Architecture      Version                 Repository                    Size
+========================================================================================================================Installing:
+ mysql-community-client                    x86_64            8.0.36-1.el9            mysql80-community            3.4 M
+Installing dependencies:
+ mysql-community-client-plugins            x86_64            8.0.36-1.el9            mysql80-community            1.4 M
+ mysql-community-common                    x86_64            8.0.36-1.el9            mysql80-community            556 k
+ mysql-community-libs                      x86_64            8.0.36-1.el9            mysql80-community            1.4 M
+
+Transaction Summary
+========================================================================================================================Install  4 Packages
+
+Total download size: 6.8 M
+Installed size: 95 M
+Downloading Packages:
+(1/4): mysql-community-client-plugins-8.0.36-1.el9.x86_64.rpm                            34 MB/s | 1.4 MB     00:00
+(2/4): mysql-community-client-8.0.36-1.el9.x86_64.rpm                                    33 MB/s | 3.4 MB     00:00
+(3/4): mysql-community-libs-8.0.36-1.el9.x86_64.rpm                                      18 MB/s | 1.4 MB     00:00
+(4/4): mysql-community-common-8.0.36-1.el9.x86_64.rpm                                   4.0 MB/s | 556 kB     00:00
+------------------------------------------------------------------------------------------------------------------------Total                                                                                    49 MB/s | 6.8 MB     00:00
+MySQL 8.0 Community Server                                                              3.0 MB/s | 3.1 kB     00:00
+Importing GPG key 0xA8D3785C:
+ Userid     : "MySQL Release Engineering <mysql-build@oss.oracle.com>"
+ Fingerprint: BCA4 3417 C3B4 85DD 128E C6D4 B7B3 B788 A8D3 785C
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
+Key imported successfully
+MySQL 8.0 Community Server                                                              3.0 MB/s | 3.1 kB     00:00
+Importing GPG key 0x3A79BD29:
+ Userid     : "MySQL Release Engineering <mysql-build@oss.oracle.com>"
+ Fingerprint: 859B E8D7 C586 F538 430B 19C2 467B 942D 3A79 BD29
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2022
+Key imported successfully
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                1/1
+  Installing       : mysql-community-client-plugins-8.0.36-1.el9.x86_64                                             1/4
+  Installing       : mysql-community-common-8.0.36-1.el9.x86_64                                                     2/4
+  Installing       : mysql-community-libs-8.0.36-1.el9.x86_64                                                       3/4
+  Running scriptlet: mysql-community-libs-8.0.36-1.el9.x86_64                                                       3/4
+  Installing       : mysql-community-client-8.0.36-1.el9.x86_64                                                     4/4
+  Running scriptlet: mysql-community-client-8.0.36-1.el9.x86_64                                                     4/4
+  Verifying        : mysql-community-client-8.0.36-1.el9.x86_64                                                     1/4
+  Verifying        : mysql-community-client-plugins-8.0.36-1.el9.x86_64                                             2/4
+  Verifying        : mysql-community-common-8.0.36-1.el9.x86_64                                                     3/4
+  Verifying        : mysql-community-libs-8.0.36-1.el9.x86_64                                                       4/4
+
+Installed:
+  mysql-community-client-8.0.36-1.el9.x86_64             mysql-community-client-plugins-8.0.36-1.el9.x86_64
+  mysql-community-common-8.0.36-1.el9.x86_64             mysql-community-libs-8.0.36-1.el9.x86_64
+
+Complete!
+[root@ip-10-1-11-57 ~]# mysql
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+[root@ip-10-1-11-57 ~]# mysql -h database-test.cn2mntmdxoyk.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 39
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> use udacity
+Database changed
+mysql> Show Tables
+    -> ^C
+mysql> CREATE TABLE abcd (id INT PRIMARY KEY, name VARCHAR(50));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| abcd              |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO abcd (id, name) VALUES
+    -> (1, 'create 1'),
+    -> (2, 'create 2');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM abcd;
++----+----------+
+| id | name     |
++----+----------+
+|  1 | create 1 |
+|  2 | create 2 |
++----+----------+
+2 rows in set (0.00 sec)
+
+mysql>
